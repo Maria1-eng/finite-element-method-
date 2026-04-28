@@ -129,5 +129,11 @@ z = np.array([[0, 0, 0, 0, 0],
               [0.3013174,  0.28048407, 0.22916667, 0.13924632, 0]])
 
 fig, ax = plt.subplots()
-ax.imshow(z)
+im = ax.imshow(z, cmap='hot', origin='lower')
+ax.set_title('FEM Solution — Poisson Equation')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+fig.colorbar(im, ax=ax, label='u(x, y)')
+plt.tight_layout()
+plt.savefig('poisson_solution.png', dpi=150, bbox_inches='tight')
 plt.show()
